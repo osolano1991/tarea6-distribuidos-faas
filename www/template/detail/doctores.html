@@ -1,5 +1,5 @@
-<h4 style="margin-top: 15px">{{ title }}</h4>
-<h5>Book's details</h5>
+<h4 style="margin-top: 15px">{{ nombre }}</h4>
+<h5>Doctor's details</h5>
 <form>
   <div class="row">
     <div class="six columns">
@@ -7,31 +7,31 @@
        <input class="u-full-width" type="text" id="_id" value="{{ _id }}" readonly/>
     </div>
     <div class="six columns">
-       <label for="copyrightInput">Copyright</label>
-       <input class="u-full-width" type="text" id="copyright" value="{{ copyright }}" readonly/>
+       <label for="edadInput">Edad</label>
+       <input class="u-full-width" type="text" id="edad" value="{{ edad }}" readonly/>
     </div>
   </div>
   <div class="row">
     <div class="six columns">
-       <label for="editionInput">Edition</label>
-       <input class="u-full-width" type="text" id="edition" value="{{edition }}" readonly/>
+       <label for="nacionalidadInput">Nacionalidad</label>
+       <input class="u-full-width" type="text" id="nacionalidad" value="{{nacionalidad }}" readonly/>
     </div>
     <div class="six columns">
-       <label for="languageInput">Language</label>
-       <input class="u-full-width" type="text" id="language" value="{{ language }}" readonly/>
+       <label for="especialidadInput">Especialidad</label>
+       <input class="u-full-width" type="text" id="especialidad" value="{{ especialidad }}" readonly/>
     </div>
   </div>
   <div class="row">
     <div class="six columns">
-       <label for=" authorInput">Author</label>
-       <a href="/authorById/?id={{ author_id }}">
-         <input class="u-full-width" type="button" id=" author" value="{{ author }}" readonly/>
+       <label for="citaInput">Cita</label>
+       <a href="/citaById/?id={{ cita_id }}">
+         <input class="u-full-width" type="button" id=" cita" value="{{ cita }}" readonly/>
        </a>
     </div>
     <div class="six columns">
-       <label for="languageInput">Publisher</label>
-       <a href="/publisherById/?id={{ publisher_id }}">
-         <input class="u-full-width" type="button" id="publisher" value="{{ publisher }}" readonly/>
+       <label for="pacienteInput">Paciente</label>
+       <a href="/pacienteById/?id={{ paciente_id }}">
+         <input class="u-full-width" type="button" id="paciente" value="{{ paciente }}" readonly/>
        </a>
     </div>
   </div>

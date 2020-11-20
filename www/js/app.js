@@ -1,5 +1,5 @@
 function getAll(entity) {
-	fetch('https://faas-example.netlify.app/api/' + entity)
+	fetch('https://tarea6-distribuidos-faas-oscarsolanomora.netlify.app/api/' + entity)
 	  .then((response) => response.json())
 		.then((data) => {
 			fetch('/template/list/' + entity + '.html')
@@ -13,7 +13,7 @@ function getAll(entity) {
 
 function getById(query, entity) {
 	var params = new URLSearchParams(query);
-	fetch('https://faas-example.netlify.app/api/' + entity + '/?id=' + params.get('id'))
+	fetch('https://tarea6-distribuidos-faas-oscarsolanomora.netlify.app/api/' + entity + '/?id=' + params.get('id'))
 	  .then((response) => response.json())
 		.then((data) => {
 			fetch('/template/detail/' + entity + '.html')
@@ -37,23 +37,23 @@ function home() {
 function init() {
 	router = new Navigo(null, false, '#!');
 	router.on({
-		'/books': function() {
-			getAll('books');
+		'/doctores': function() {
+			getAll('doctores');
 		},
-		'/authors': function() {
-			getAll('authors');
+		'/citas': function() {
+			getAll('citas');
 		},
-		'/publishers': function() {
-			getAll('publishers');
+		'/pacientes': function() {
+			getAll('pacientes');
 		},
-		'/bookById': function(_, query) {
-			getById(query, 'books');
+		'/doctorById': function(_, query) {
+			getById(query, 'doctores');
 		},
-		'/authorById': function(_, query) {
-			getById(query, 'authors');
+		'/citaById': function(_, query) {
+			getById(query, 'citas');
 		},
-		'/publisherById': function(_, query) {
-			getById(query, 'publishers');
+		'/pacienteById': function(_, query) {
+			getById(query, 'pacientes');
 		}
 	});
 	router.on(() => home());

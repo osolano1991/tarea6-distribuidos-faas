@@ -1,5 +1,5 @@
-<h4 style="margin-top: 15px">{{ author }}</h4>
-<h5>Author's details</h5>
+<h4 style="margin-top: 15px">{{ cita }}</h4>
+<h5>Cita's details</h5>
 
 <form>
   <div class="row">
@@ -8,25 +8,25 @@
        <input class="u-full-width" id="_id" type="text" value="{{ _id }}" readonly/>
     </div>
     <div class="six columns">
-       <label for="nationalityInput">Nationality</label>
-       <input class="u-full-width" id="nationality" type="text" value="{{ nationality }}" readonly/>
+       <label for="diaInput">Dia</label>
+       <input class="u-full-width" id="dia" type="text" value="{{ dia }}" readonly/>
     </div>
   </div>
   <div class="row">
     <div class="six columns">
-       <label for="birthInput">Birth Year</label>
-       <input class="u-full-width" id="birth_year" type="text" value="{{ birth_year }}"  readonly/>
+       <label for="horaInput">Hora</label>
+       <input class="u-full-width" id="hora" type="text" value="{{ hora }}"  readonly/>
     </div>
     <div class="six columns">
-       <label for="fieldsInput">Fields</label>
-       <input class="u-full-width" id="fields" type="text" value="{{ fields  }}"  readonly/>
+       <label for="ubicacionInput">Ubicacion</label>
+       <input class="u-full-width" id="ubicacion" type="text" value="{{ ubicacion  }}"  readonly/>
     </div>
   </div>
 </form>
 
-<h5>Books</h5>
+<h5>Doctores</h5>
 <ul>
-{{#books}}
-  <li><a href="/bookById/?id={{book_id}}">{{title}}</li>
-{{/books}}
+{{#doctores}}
+  <li><a href="/doctorById/?id={{doctor_id}}">{{nombre}}</li>
+{{/doctores}}
 </ul>

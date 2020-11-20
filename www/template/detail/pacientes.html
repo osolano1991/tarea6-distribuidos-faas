@@ -8,25 +8,25 @@
        <input class="u-full-width" id="_id" type="text" value="{{ _id }}" readonly/>
     </div>
     <div class="six columns">
-       <label for="countryInput">Country</label>
-       <input class="u-full-width" id="country" type="text" value="{{ country }}" readonly/>
+       <label for="edadInput">Edad</label>
+       <input class="u-full-width" id="edad" type="text" value="{{ edad }}" readonly/>
     </div>
   </div>
   <div class="row">
     <div class="six columns">
-       <label for="foundedInput">Founded</label>
-       <input class="u-full-width" id="founded" type="text" value="{{ founded }}"  readonly/>
+       <label for="enfermedadInput">Enfermedad</label>
+       <input class="u-full-width" id="enfermedad" type="text" value="{{ enfermedad }}"  readonly/>
     </div>
     <div class="six columns">
-       <label for="genereInput">Genere</label>
-       <input class="u-full-width" id="genere" type="text" value="{{ genere }}"  readonly/>
+       <label for="nacionalidadInput">Nacionalidad</label>
+       <input class="u-full-width" id="nacionalidad" type="text" value="{{ nacionalidad }}"  readonly/>
     </div>
   </div>
 </form>
 
-<h5>Books</h5>
+<h5>Doctores</h5>
 <ul>
-{{#books}}
-  <li><a href="/bookById/?id={{book_id}}">{{title}}</li>
-{{/books}}
+{{#doctores}}
+  <li><a href="/doctorById/?id={{doctor_id}}">{{nombre}}</li>
+{{/doctores}}
 </ul>
