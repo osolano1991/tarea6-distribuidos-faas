@@ -16,10 +16,10 @@ type Paciente struct {
 	Id              int       `json:"_id"`
 	Paciente        string    `json:"paciente"`
 	Edad            string    `json:"edad"`
-	Enfermedad      string       `json:"enfermedad"`
+	Enfermedad      string    `json:"enfermedad"`
 	Nacionalidad    string    `json:"nacionalidad"`
 	Tratamientos    string    `json:"tratamientos"`
-	Doctores     []DoctorRef `json:"doctores"`
+	Doctores        []DoctorRef `json:"doctores"`
 }
 
 var items []Paciente
