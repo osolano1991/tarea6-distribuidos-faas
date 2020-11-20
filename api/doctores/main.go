@@ -11,9 +11,9 @@ type Doctor struct {
 	Id            int    `json:"_id"`
 	Nombre        string `json:"nombre"`
 	Edad          string `json:"edad"`
-	Nacionalidad  int    `json:"nacionalidad"`
+	Nacionalidad  string `json:"nacionalidad"`
 	Especialidad  string `json:"especialidad"`
-	CentroMedico  int    `json:"centromedico"`
+	CentroMedico  string `json:"centromedico"`
 	Cita          string `json:"cita"`
 	Cita_Id       int    `json:"cita_id"`
 	Paciente      string `json:"paciente"`

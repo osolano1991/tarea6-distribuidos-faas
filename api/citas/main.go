@@ -16,7 +16,7 @@ type Cita struct {
 	Id            int       `json:"_id"`
 	Cita          string    `json:"cita"`
 	Dia           string    `json:"dia"`
-	Hora          int       `json:"hora"`
+	Hora          string    `json:"hora"`
 	Ubicacion     string    `json:"ubicacion"`
 	Especialidad  string    `json:"especialidad"`
 	Doctores       []DoctorRef `json:"doctores"`
