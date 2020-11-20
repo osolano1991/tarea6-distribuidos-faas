@@ -1,0 +1,8 @@
+<h3 style="margin-top: 15px">Citas Information</h3>
+This section presents information about the citas of doctores
+<p>
+<ul>
+  {{#.}}
+    <li><a href='/citaById/?id={{ _id }}'> {{ cita }}</a></li>
+  {{/.}}
+</ul>

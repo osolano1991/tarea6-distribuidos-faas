@@ -1,0 +1,8 @@
+<h3 style="margin-top: 15px">Pacientes Information</h3>
+This section presents information about pacientes
+<p>
+<ul>
+  {{#.}}
+    <li><a href='/pacienteById/?id={{ _id }}'> {{ paciente }}</a></li>
+  {{/.}}
+</ul>

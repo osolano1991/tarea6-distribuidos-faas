@@ -1,0 +1,8 @@
+<h3 style="margin-top: 15px">Doctores Information</h3>
+This section presents information about doctores
+<p>
+<ul>
+  {{#.}}
+    <li><a href='/doctorById/?id={{ _id }}'> {{ nombre }}</a></li>
+  {{/.}}
+</ul>
