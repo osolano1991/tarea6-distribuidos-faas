@@ -7,60 +7,99 @@ import (
 	"strconv"
 )
 
-type BookRef struct {
-	BookId int    `json:"book_id"`
-	Title  string `json:"title"`
+type DoctorRef struct {
+	DoctorId int    `json:"doctor_id"`
+	Nombre  string `json:"nombre"`
 }
 
-type Publisher struct {
+type Paciente struct {
 	Id        int       `json:"_id"`
-	Publisher string    `json:"publisher"`
-	Country   string    `json:"country"`
-	Founded   int       `json:"founded"`
-	Genere    string    `json:"genere"`
-	Books     []BookRef `json:"books"`
+	Paciente string    `json:"paciente"`
+	Edad   string    `json:"edad"`
+	Enfermedad   int       `json:"enfermedad"`
+	Nacionalidad    string    `json:"nacionalidad"`
+	Tratamientos    string    `json:"tratamientos"`
+	Doctores     []DoctorRef `json:"doctores"`
 }
 
-var items []Publisher
+var items []Paciente
 
 var jsonData string = `[
 	{
 		"_id": 1,
-		"publisher": "John Wiley & Sons",
-		"country": "United States",
-		"founded": 1807,
-		"genere": "Academic",
-		"books": [
+		"paciente": "Luis Solano Mora",
+		"edad": "26",
+		"enfermedad": "Hipertension",
+		"nacionalidad": "Estados Unidos",
+		"tratamientos": "Pastillas",
+		"doctores": [
 			{
-				"book_id": 1,
-				"title": "Operating System Concepts"
+				"doctor_id": 1,
+				"nombre": "Oscar Solano Mora"
 			},
 			{
-				"book_id": 2,
-				"title": "Database System Concepts"
+				"doctor_id": 2,
+				"nombre": "Tatiana Chaves Salazar"
 			}
 		]
 	},
 	{
 		"_id": 2,
-		"publisher": "Pearson Education",
-		"country": "United Kingdom",
-		"founded": 1844,
-		"genere": "Education",
-		"books": [
+		"paciente": "Floribeth Mora JIménez",
+		"edad": "52",
+		"enfermedad": "Miopia",
+		"nacionalidad": "Inglaterra",
+		"tratamientos": "Lentes",
+		"doctores": [
 			{
-				"book_id": 3,
-				"title": "Computer Networks"
+				"doctor_id": 3,
+				"nombre": "Angie Segura Solano"
 			},
 			{
-				"book_id": 4,
-				"title": "Modern Operating Systems"
+				"doctor_id": 4,
+				"nombre": "Ronald Solano López"
+			}
+		]
+	},
+	{
+		"_id": 3,
+		"paciente": "Nadia Solano Mora",
+		"edad": "27",
+		"enfermedad": "Colesterol",
+		"nacionalidad": "España",
+		"tratamientos": "Bajar de peso",
+		"doctores": [
+			{
+				"doctor_id": 2,
+				"nombre": "Tatiana Chaves Salazar"
+			},
+			{
+				"doctor_id": 3,
+				"nombre": "Angie Segura Solano"
+			}
+		]
+	},
+	{
+		"_id": 4,
+		"paciente": "Jouser Thomas Acuña",
+		"edad": "15",
+		"enfermedad": "Diabetes",
+		"nacionalidad": "Francia",
+		"tratamientos": "Inyecciones",
+		"doctores": [
+			{
+				"doctor_id": 1,
+				"nombre": "Oscar Solano Mora"
+			},
+			{
+				"doctor_id": 4,
+				"nombre": "Ronald Solano López"
 			}
 		]
 	}
 ]`
 
-func FindItem(id int) *Publisher {
+func FindItem(id int) *Paciente {
 	for _, item := range items {
 		if item.Id == id {
 			return &item

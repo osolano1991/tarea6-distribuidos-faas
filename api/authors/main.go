@@ -7,60 +7,109 @@ import (
 	"strconv"
 )
 
-type BookRef struct {
-	BookId int    `json:"book_id"`
-	Title  string `json:"title"`
+type DoctorRef struct {
+	DoctorId int    `json:"doctor_id"`
+	Title  string `json:"nombre"`
 }
 
-type Author struct {
-	Id          int       `json:"_id"`
-	Author      string    `json:"author"`
-	Nationality string    `json:"nationality"`
-	BirthYear   int       `json:"birth_year"`
-	Fields      string    `json:"fields"`
-	Books       []BookRef `json:"books"`
+type Cita struct {
+	Id            int       `json:"_id"`
+	Cita          string    `json:"cita"`
+	Dia           string    `json:"dia"`
+	Hora          int       `json:"hora"`
+	Ubicacion     string    `json:"ubicacion"`
+	Especialidad  string    `json:"especialidad"`
+	Doctores       []DoctorRef `json:"doctores"`
 }
 
-var items []Author
+var items []Cita
 
 var jsonData string = `[
 	{
 		"_id": 1,
-		"author": "Abraham Silberschatz",
-		"nationality": "Israelis / American",
-		"birth_year": 1952,
-		"fields": "Database Systems, Operating Systems",
-		"books": [
+		"cita": "CITA 1",
+		"dia": "Lunes",
+		"hora": "04:00 p.m",
+		"ubicacion": "Heredia",
+		"especialidad": "Medicina General",
+		"doctores": [
 			{
-				"book_id": 1,
-				"title": "Operating System Concepts"
+				"doctor_id": 1,
+				"nombre": "Oscar Solano Mora"
 			},
 			{
-				"book_id": 2,
-				"title": "Database System Concepts"
+				"doctor_id": 2,
+				"nombre": "Tatiana Chaves Salazar"
 			}
 		]
 	},
 	{
 		"_id": 2,
-		"author": "Andrew S. Tanenbaum",
-		"nationality": "Dutch / American",
-		"birth_year": 1944,
-		"fields": "Distributed computing, Operating Systems",
-		"books": [
+		"cita": "CITA 2",
+		"dia": "Martes",
+		"hora": "10:00 a.m",
+		"ubicacion": "San José",
+		"especialidad": "Oftalmología",
+		"doctores": [
 			{
-				"book_id": 3,
-				"title": "Computer Networks"
+				"doctor_id": 3,
+				"nombre": "Angie Segura Solano"
 			},
 			{
-				"book_id": 4,
-				"title": "Modern Operating Systems"
+				"doctor_id": 4,
+				"nombre": "Ronald Solano López"
+			}
+		]
+	},
+	{
+		"_id": 3,
+		"cita": "CITA 3",
+		"dia": "Miércoles",
+		"hora": "08:00 a.m",
+		"ubicacion": "Puntarenas",
+		"especialidad": "Neurología",
+		"doctores": [
+			{
+				"doctor_id": 7,
+				"nombre": "Keilyn Chaves Salazar"
+			},
+			{
+				"doctor_id": 6,
+				"nombre": "Arcelio Chaves Villarevia"
+			}
+			,
+			{
+				"doctor_id": 1,
+				"nombre": "Oscar Solano Mora"
+			}
+		]
+	},
+	{
+		"_id": 4,
+		"cita": "CITA 4",
+		"dia": "Jueves",
+		"hora": "12:00 p.m",
+		"ubicacion": "Alajuela",
+		"especialidad": "Pediatría",
+		"doctores": [
+			{
+				"doctor_id": 1,
+				"nombre": "Oscar Solano Mora"
+			},
+			{
+				"doctor_id": 5,
+				"nombre": "Lorena Salazar Mora"
+			}
+			,
+			{
+				"doctor_id": 2,
+				"nombre": "Tatiana Chaves Salazar"
 			}
 		]
 	}
 ]`
 
-func FindItem(id int) *Author {
+func FindItem(id int) *Cita {
 	for _, item := range items {
 		if item.Id == id {
 			return &item

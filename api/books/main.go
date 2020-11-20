@@ -7,76 +7,76 @@ import (
 	"strconv"
 )
 
-type Book struct {
-	Id           int    `json:"_id"`
-	Title        string `json:"title"`
-	Edition      string `json:"edition"`
-	Copyright    int    `json:"copyright"`
-	Language     string `json:"language"`
-	Pages        int    `json:"pages"`
-	Author       string `json:"author"`
-	Author_Id    int    `json:"author_id"`
-	Publisher    string `json:"publisher"`
-	Publisher_Id int    `json:"publisher_id"`
+type Doctor struct {
+	Id            int    `json:"_id"`
+	Nombre        string `json:"nombre"`
+	Edad          string `json:"edad"`
+	Nacionalidad  int    `json:"nacionalidad"`
+	Especialidad  string `json:"especialidad"`
+	CentroMedico  int    `json:"centromedico"`
+	Cita          string `json:"cita"`
+	Cita_Id       int    `json:"cita_id"`
+	Paciente      string `json:"paciente"`
+	Paciente_Id   int    `json:"paciente_id"`
 }
 
-var books []Book
+var doctores []Doctor
 
 var jsonData string = `[
 	{
 		"_id": 1,
-		"title": "Operating System Concepts",
-		"edition": "9th",
-		"copyright": 2012,
-		"language": "ENGLISH",
-		"pages": 976,
-		"author": "Abraham Silberschatz",
-		"author_id": 1,
-		"publisher": "John Wiley & Sons",
-		"publisher_id": 1
+		"nombre": "Oscar Solano Mora",
+		"edad": "29",
+		"nacionalidad": "Costa Rica",
+		"especialidad": "Medicina General",
+		"centromedico": "San José",
+		"cita": "CITA 1",
+		"cita_id": 1,
+		"paciente": "Luis Solano Mora",
+		"paciente_id": 1
 	},
 	{
 		"_id": 2,
-		"title": "Database System Concepts",
-		"edition": "6th",
-		"copyright": 2010,
-		"language": "ENGLISH",
-		"pages": 1376,
-		"author": "Abraham Silberschatz",
-		"author_id": 1,
-		"publisher": "John Wiley & Sons",
-		"publisher_id": 1
+		"nombre": "Tatiana Chaves Salazar",
+		"edad": "30",
+		"nacionalidad": "Costa Rica",
+		"especialidad": "Odontologia",
+		"centromedico": "Cartago",
+		"cita": "CITA 1",
+		"cita_id": 1,
+		"paciente": "Luis Solano Mora",
+		"paciente_id": 1
 	},
 	{
 		"_id": 3,
-		"title": "Computer Networks",
-		"edition": "5th",
-		"copyright": 2010,
-		"language": "ENGLISH",
-		"pages": 960,
-		"author": "Andrew S. Tanenbaum",
-		"author_id": 2,
-		"publisher": "Pearson Education",
-		"publisher_id": 2
+		"nombre": "Angie Segura Solano",
+		"edad": "18",
+		"nacionalidad": "Costa Rica",
+		"especialidad": "Neurologa",
+		"centromedico": "Heredia",
+		"cita": "CITA 2",
+		"cita_id": 2,
+		"paciente": "Floribeth Mora JIménez",
+		"paciente_id": 2
 	},
 	{
 		"_id": 4,
-		"title": "Modern Operating Systems",
-		"edition": "4th",
-		"copyright": 2014,
-		"language": "ENGLISH",
-		"pages": 1136,
-		"author": "Andrew S. Tanenbaum",
-		"author_id": 2,
-		"publisher": "Pearson Education",
-		"publisher_id": 2
+		"nombre": "Ronald Solano López",
+		"edad": "50",
+		"nacionalidad": "Mexico",
+		"especialidad": "Oftalmologia",
+		"centromedico": "San Jose",
+		"cita": "CITA 2",
+		"cita_id": 2,
+		"paciente": "Floribeth Mora JIménez",
+		"paciente_id": 2
 	}
 ]`
 
-func FindBook(id int) *Book {
-	for _, book := range books {
-		if book.Id == id {
-			return &book
+func FindDoctor(id int) *Doctor {
+	for _, doctor := range doctores {
+		if doctor.Id == id {
+			return &doctor
 		}
 	}
 	return nil
@@ -86,13 +86,13 @@ func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse
 	id := req.QueryStringParameters["id"]
 	var data []byte
 	if id == "" {
-		data, _ = json.Marshal(books)
+		data, _ = json.Marshal(doctores)
 	} else {
 		param, err := strconv.Atoi(id)
 		if err == nil {
-			book := FindBook(param)
-			if book != nil {
-				data, _ = json.Marshal(*book)
+			doctor := FindDoctor(param)
+			if doctor != nil {
+				data, _ = json.Marshal(*doctor)
 			} else {
 				data = []byte("error\n")
 			}
@@ -107,6 +107,6 @@ func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse
 }
 
 func main() {
-	_ = json.Unmarshal([]byte(jsonData), &books)
+	_ = json.Unmarshal([]byte(jsonData), &doctores)
 	lambda.Start(handler)
 }
